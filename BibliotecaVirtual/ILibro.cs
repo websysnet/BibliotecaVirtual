@@ -3,9 +3,10 @@ namespace Biblioteca
 {
     interface ILibro
     {
-    
-        void CrearLibro();
-        List<Libro> ListarLibros();
+
+        List<Libro> CrearLibro(List<Libro> libros);
+        void ListarLibros(List<Libro> libros);
+        void BuscarLibro(string Titulo,List<Libro> libros);
         
     }   
 

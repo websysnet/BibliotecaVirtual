@@ -1,12 +1,14 @@
+using System.Text;
+
 namespace Biblioteca
 {
     class LibroRepository :ILibro
     {
-        private List<Libro> libros = new List<Libro>();
         private int nextId = 1;
 
-        public void CrearLibro()
-        {
+        public List<Libro> CrearLibro(List<Libro> libros)
+        {           
+
             Console.WriteLine("Ingrese el título del libro:");
             string titulo = Console.ReadLine();
 
@@ -24,13 +26,47 @@ namespace Biblioteca
             libros.Add(nuevoLibro);
             nextId++;
 
-            Console.WriteLine("Libro agregado exitosamente.");
+            return libros;
+
         }
 
-        public List<Libro>  ListarLibros()
+        public void  ListarLibros(List<Libro> libros)
         {
-            List<Libro> lista = new List<Libro>();
-            return lista;
+            Console.Clear();
+            if (libros == null)
+            {
+                Console.WriteLine("Sin libros....");
+            }
+            else
+            {
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("Listado de libros");
+                foreach (var item in libros)
+                {
+                    
+                    Console.WriteLine($"{item.Id} -- {item.Titulo} --  {item.Autor}  -- {item.AnioPublicacion}");
+                }
+                Console.WriteLine("----------------------------------------");
+
+            }
+            Console.ReadKey();
+            
+           
+                
+        }
+
+        public void BuscarLibro(string Titulo, List<Libro> libros)
+        {
+            Libro libroenc= libros.FirstOrDefault(l => l.Titulo.Equals(Titulo, StringComparison.OrdinalIgnoreCase));
+            if (libroenc != null)
+            {
+                Console.WriteLine($"Libro encontrado: {libroenc.Id} -- {libroenc.Titulo} -- {libroenc.Autor} -- {libroenc.AnioPublicacion}");
+            }
+            else
+            {
+                Console.WriteLine("Libro no encontrado.");
+            }
+            Console.ReadKey(); 
         }
     }
 }
