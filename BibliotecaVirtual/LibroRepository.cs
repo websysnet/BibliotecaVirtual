@@ -44,7 +44,7 @@ namespace Biblioteca
                 foreach (var item in libros)
                 {
                     
-                    Console.WriteLine($"{item.Id} -- {item.Titulo} --  {item.Autor}  -- {item.AnioPublicacion}");
+                    Console.WriteLine($"{item.Id}  {item.Titulo}   {item.Autor}   {item.AnioPublicacion}");
                 }
                 Console.WriteLine("----------------------------------------");
 
