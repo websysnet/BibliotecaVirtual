@@ -16,7 +16,7 @@ do
     Console.WriteLine("5. Prestamo de Libro");
     Console.WriteLine("10. Salir");
 
-    opcion = int.Parse(Console.ReadLine());
+    opcion = Convert.ToInt32((Console.ReadLine()));
 
 
 
