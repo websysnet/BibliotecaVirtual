@@ -39,8 +39,16 @@ do
         case 3:
             Console.Clear();
             Console.WriteLine("Ingrese el título del libro a buscar:");
-            string Titulo = Console.ReadLine();
-            repo.BuscarLibro(Titulo, libros);
+            string Titulo = Console.ReadLine() ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(Titulo))
+            {
+                Console.WriteLine("Entrada vacía. Presione una tecla para continuar...");
+                Console.ReadKey();
+            }
+            else
+            {
+                repo.BuscarLibro(Titulo, libros);
+            }
             
             break;
         case 4:
