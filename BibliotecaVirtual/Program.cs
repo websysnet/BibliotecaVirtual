@@ -18,12 +18,8 @@ do
 
     opcion = Convert.ToInt32((Console.ReadLine()));
 
-
-
     switch (opcion)
     {
-
-
         case 1:
             //Agregar Libro
             Console.Clear();
@@ -52,7 +48,18 @@ do
             
             break;
         case 4:
-            //Eliminar Libro
+            Console.Clear();
+            Console.WriteLine("Lista de libros disponibles:");
+            repo.ListarLibros(libros);
+            Console.WriteLine("Ingrese el título del libro a eliminar:");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            repo.EliminarLibro(id, libros);
+            break;
+        case 5:
+            Console.Clear();
+            Console.WriteLine("Funcionalidad de préstamo de libro en construcción...");
+            Console.ReadKey();
             break;
 
         default:

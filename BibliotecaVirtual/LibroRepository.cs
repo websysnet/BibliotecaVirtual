@@ -45,13 +45,12 @@ namespace Biblioteca
                 foreach (var item in libros)
                 {
                     
-                    Console.WriteLine($"{item.Id}  {item.Titulo}   {item.Autor}   {item.AnioPublicacion}");
+                    Console.WriteLine($"{item.Id}  {item.Titulo}   {item.Autor}   {item.FechaPublicacion}");
                 }
                 Console.WriteLine("----------------------------------------");
 
             }
-            Console.ReadKey();
-            
+            Console.ReadKey();           
            
                 
         }
@@ -61,13 +60,28 @@ namespace Biblioteca
             Libro? libroenc = libros.FirstOrDefault(l => l.Titulo.Equals(Titulo, StringComparison.OrdinalIgnoreCase));
             if (libroenc != null)
             {
-                Console.WriteLine($"Libro encontrado: {libroenc.Id} -- {libroenc.Titulo} -- {libroenc.Autor} -- {libroenc.AnioPublicacion}");
+                Console.WriteLine($"Libro encontrado: {libroenc.Id} -- {libroenc.Titulo} -- {libroenc.Autor} -- {libroenc.FechaPublicacion}");
             }
             else
             {
                 Console.WriteLine("Libro no encontrado.");
             }
-            Console.ReadKey(); 
+            Console.ReadKey();
+        }
+        
+        public void EliminarLibro(int Id, List<Libro> libros)
+        {
+            Libro? libroenc = libros.FirstOrDefault(l => l.Id == Id);
+            if (libroenc != null)
+            {
+                libros.Remove(libroenc);
+                Console.WriteLine("Libro eliminado exitosamente.");
+            }
+            else
+            {
+                Console.WriteLine("Libro no encontrado.");
+            }
+            Console.ReadKey();
         }
     }
 }
