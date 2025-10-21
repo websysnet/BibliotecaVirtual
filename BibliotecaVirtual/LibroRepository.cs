@@ -7,13 +7,14 @@ namespace Biblioteca
         private int nextId = 1;
 
         public List<Libro> CrearLibro(List<Libro> libros)
-        {           
-
+        {
+            string titulo = "";
+            string autor = "";
             Console.WriteLine("Ingrese el título del libro:");
-            string titulo = Console.ReadLine();
+            titulo = Console.ReadLine() ?? string.Empty;
 
             Console.WriteLine("Ingrese el autor del libro:");
-            string autor = Console.ReadLine();
+            autor = Console.ReadLine() ?? string.Empty;
 
             Console.WriteLine("Ingrese el año de publicación del libro:");
             int anioPublicacion;
@@ -57,7 +58,7 @@ namespace Biblioteca
 
         public void BuscarLibro(string Titulo, List<Libro> libros)
         {
-            Libro libroenc= libros.FirstOrDefault(l => l.Titulo.Equals(Titulo, StringComparison.OrdinalIgnoreCase));
+            Libro? libroenc = libros.FirstOrDefault(l => l.Titulo.Equals(Titulo, StringComparison.OrdinalIgnoreCase));
             if (libroenc != null)
             {
                 Console.WriteLine($"Libro encontrado: {libroenc.Id} -- {libroenc.Titulo} -- {libroenc.Autor} -- {libroenc.AnioPublicacion}");
